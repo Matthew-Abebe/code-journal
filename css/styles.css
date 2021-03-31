@@ -55,8 +55,10 @@ button.submit-button {
   font-size: 15px;
 }
 
-textarea#notes-section:focus {
-  color: #59338a;
+#title-name,
+#photo-url,
+#notes-section:focus {
+  border-color: #59338a;
 }
 
 @media screen and (max-width: 768px) {
