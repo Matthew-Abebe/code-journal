@@ -24,11 +24,9 @@ function handleSubmitForm(event) {
     entryId: data.nextEntryId++
   };
 
-  var newEntry = data.entries.unshift(inputObj);
+  data.entries.unshift(inputObj);
 
   $formElement.reset();
 
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-
-  return newEntry;
 }

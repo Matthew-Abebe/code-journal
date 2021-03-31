@@ -3,7 +3,6 @@
 }
 
 .container {
-  flex-flow: column wrap;
   display: flex;
   max-width: 575px;
   margin: 0 auto;
@@ -32,10 +31,4 @@
 
 .column-full {
   width: 100%;
-}
-
-form > div.container {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
 }
