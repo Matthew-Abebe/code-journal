@@ -8,13 +8,16 @@ header {
 
 h1,
 h2,
+a,
 p {
   font-family: 'Fira Sans', Helvetica, sans-serif;
   font-weight: bold;
 }
 
-h2 {
+h2,
+a {
   font-weight: lighter;
+  display: inline-block;
 }
 
 .column-full > h2 {
@@ -74,4 +77,15 @@ textarea:focus {
   .column-half {
     width: 100%;
   }
+}
+
+a {
+  position: relative;
+  margin-left: 10px;
+  color: white;
+  font-size: larger;
+}
+
+.hidden {
+  display: none;
 }

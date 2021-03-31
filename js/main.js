@@ -30,3 +30,12 @@ function handleSubmitForm(event) {
 
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
 }
+
+var entriesTab = document.querySelector('a');
+// console.log(entriesTab);
+
+function handleClick(event) {
+  // console.log('clicked link to entries view!');
+}
+
+entriesTab.addEventListener('click', handleClick);
