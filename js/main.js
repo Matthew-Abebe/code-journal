@@ -32,16 +32,3 @@ function handleSubmitForm(event) {
 
   return newEntry;
 }
-
-// var codeJournalEntries = localStorage.getItem('code-journal-data');
-
-// if (previousEntriesJSON !== null) {
-//   data.entries = JSON.parse(previousEntriesJSON);
-// }
-window.addEventListener('beforeunload', handleBeforeUnload);
-
-function handleBeforeUnload(event) {
-
-  var dataJSON = JSON.stringify(data);
-  localStorage.setItem('code-journal-data', dataJSON);
-}
