@@ -45,3 +45,38 @@ function handleClick(event) {
 }
 
 entriesTab.addEventListener('click', handleClick);
+
+function renderJournalEntry(entry) {
+
+  var $containerEl = document.createElement('div');
+  $containerEl.className = 'container';
+
+  var $rowEl = document.createElement('div');
+  $rowEl.className = 'row';
+
+  var $columnHalfDivEl = document.createElement('div');
+  $columnHalfDivEl.className = 'column-half';
+
+  var $columnHalfDivElTwo = document.createElement('div');
+  $columnHalfDivElTwo.className = 'column-half';
+
+  var $imageEl = document.createElement('img');
+  $imageEl.className = 'entry_photo';
+
+  var $entryTitle = document.createElement('h2');
+  $entryTitle.className = 'entry_title';
+
+  var $entryParagraph = document.createElement('p');
+  $entryParagraph.className = 'entry_paragraph';
+
+  $containerEl.appendChild($rowEl);
+  $rowEl.appendChild($columnHalfDivEl);
+  $columnHalfDivEl.appendChild($imageEl);
+  $rowEl.appendChild($columnHalfDivElTwo);
+  $columnHalfDivElTwo.appendChild($entryTitle);
+  $columnHalfDivElTwo.appendChild($entryParagraph);
+
+  return $containerEl;
+}
+
+renderJournalEntry();
