@@ -32,10 +32,16 @@ function handleSubmitForm(event) {
 }
 
 var entriesTab = document.querySelector('a');
+var entryForm = document.querySelector('.entry-form');
+var entries = document.querySelector('.entries');
 // console.log(entriesTab);
 
 function handleClick(event) {
-  // console.log('clicked link to entries view!');
+  // console.log('clicked link to entries view!', event.target.value);
+
+  entryForm.className = 'hidden';
+  entries.className = 'view';
+
 }
 
 entriesTab.addEventListener('click', handleClick);

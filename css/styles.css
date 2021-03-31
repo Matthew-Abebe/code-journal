@@ -89,3 +89,7 @@ a {
 .hidden {
   display: none;
 }
+
+.new-entry-button {
+  display: inline;
+}
