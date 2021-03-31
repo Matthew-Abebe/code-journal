@@ -7,22 +7,22 @@ header {
 }
 
 h1,
+h2,
 p {
   font-family: 'Fira Sans', Helvetica, sans-serif;
   font-weight: bold;
 }
 
 h2 {
-  font-family: 'Fira Sans', Helvetica, sans-serif;
   font-weight: lighter;
 }
 
-div.column-full > h2 {
+.column-full > h2 {
   color: #ffff;
   text-align: left;
 }
 
-div.photo > input {
+.photo > input {
   width: 100%;
   height: 355px;
 }
@@ -53,4 +53,14 @@ button.submit-button {
   border-radius: 5px;
   margin-top: 20px;
   font-size: 15px;
+}
+
+textarea#notes-section:focus {
+  color: #59338a;
+}
+
+@media screen and (max-width: 768px) {
+  .column-half {
+    width: 100%;
+  }
 }
