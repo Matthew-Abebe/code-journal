@@ -30,14 +30,28 @@ h2 {
 textarea {
   width: 100%;
   height: 170px;
+  border: 3px solid gray;
+  border-radius: 5px;
+}
+
+textarea:focus {
+  border-color: #59338a;
 }
 
 input#title_name,
 input#photo_url {
   width: 100%;
   height: 35px;
+  border: 3px solid gray;
   border-radius: 5px;
-  border: 1.5px solid gray;
+}
+
+input#photo_url:focus {
+  border-color: #59338a;
+}
+
+input#title_name:focus {
+  border-color: #59338a;
 }
 
 div.save-button {
@@ -53,12 +67,6 @@ button.submit-button {
   border-radius: 5px;
   margin-top: 20px;
   font-size: 15px;
-}
-
-#title-name,
-#photo-url,
-#notes-section:focus {
-  border-color: #59338a;
 }
 
 @media screen and (max-width: 768px) {
