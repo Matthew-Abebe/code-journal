@@ -48,9 +48,6 @@ entriesTab.addEventListener('click', handleClick);
 
 function renderJournalEntry(entry) {
 
-  var $containerEl = document.createElement('div');
-  $containerEl.className = 'container';
-
   var $rowEl = document.createElement('div');
   $rowEl.className = 'row';
 
@@ -62,21 +59,40 @@ function renderJournalEntry(entry) {
 
   var $imageEl = document.createElement('img');
   $imageEl.className = 'entry_photo';
+  $imageEl.setAttribute('src', entry.photoURL);
 
   var $entryTitle = document.createElement('h2');
   $entryTitle.className = 'entry_title';
+  $entryTitle.textContent = entry.title;
 
   var $entryParagraph = document.createElement('p');
   $entryParagraph.className = 'entry_paragraph';
+  $entryParagraph.textContent = entry.notes;
 
-  $containerEl.appendChild($rowEl);
   $rowEl.appendChild($columnHalfDivEl);
   $columnHalfDivEl.appendChild($imageEl);
   $rowEl.appendChild($columnHalfDivElTwo);
   $columnHalfDivElTwo.appendChild($entryTitle);
   $columnHalfDivElTwo.appendChild($entryParagraph);
 
-  return $containerEl;
+  return $rowEl;
 }
 
-renderJournalEntry();
+window.addEventListener('DOMContentLoaded', handleDOMLoaded);
+
+var $unorderedListEl = document.querySelector('ul');
+
+function handleDOMLoaded(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $unorderedListEl.appendChild(renderJournalEntry(data.entries[i]));
+  }
+}
+
+var $newJournaEntryButton = document.querySelector('.new-entry-button');
+$newJournaEntryButton.addEventListener('click', handleNewJournalEntry);
+
+function handleNewJournalEntry(event) {
+  // console.log('clicked to add new journal entry!');
+}
+
+// data.entries.pop();
