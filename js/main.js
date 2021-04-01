@@ -3,6 +3,7 @@
 
 var $photoUrl = document.querySelector('#photo_url');
 var $photo = document.querySelector('#photo');
+var $unorderedListEl = document.querySelector('ul');
 
 $photoUrl.addEventListener('input', updatePhotoUrl);
 
@@ -16,31 +17,27 @@ $formElement.addEventListener('submit', handleSubmitForm);
 
 function handleSubmitForm(event) {
   event.preventDefault();
-
   var inputObj = {
     title: $formElement.elements['title-name'].value,
     photoURL: $formElement.elements['photo-url'].value,
     notes: $formElement.elements['notes-section'].value,
     entryId: data.nextEntryId++
   };
-
   data.entries.unshift(inputObj);
-
   $formElement.reset();
-
   $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $unorderedListEl.prepend(renderJournalEntry(inputObj));
 }
 
 var entriesTab = document.querySelector('a');
 var entryForm = document.querySelector('.entry-form');
 var entries = document.querySelector('.entries');
-// console.log(entriesTab);
 
 function handleClick(event) {
-  // console.log('clicked link to entries view!', event.target.value);
 
   entryForm.className = 'hidden';
   entries.className = 'view';
+  data.view = 'entries';
 
 }
 
@@ -80,11 +77,17 @@ function renderJournalEntry(entry) {
 
 window.addEventListener('DOMContentLoaded', handleDOMLoaded);
 
-var $unorderedListEl = document.querySelector('ul');
-
 function handleDOMLoaded(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $unorderedListEl.appendChild(renderJournalEntry(data.entries[i]));
+  }
+  if (data.view === 'entries') {
+    entries.className = 'view';
+    entryForm.className = 'hidden';
+  } else if
+  (data.view === 'entry-form') {
+    entryForm.className = 'view';
+    entries.className = 'hidden';
   }
 }
 
@@ -92,9 +95,9 @@ var $newJournaEntryButton = document.querySelector('.new-entry-button');
 $newJournaEntryButton.addEventListener('click', handleNewJournalEntry);
 
 function handleNewJournalEntry(event) {
-  // console.log('clicked to add new journal entry!');
   entryForm.className = 'view';
   entries.className = 'hidden';
+  data.view = 'entry-form';
 }
 
 // data.entries.pop();
