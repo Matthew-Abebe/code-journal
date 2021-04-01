@@ -30,6 +30,10 @@ a {
   display: inline-block;
 }
 
+nav > h2 {
+  color: white;
+}
+
 .column-half > h2 {
   font-weight: bold;
 }

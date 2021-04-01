@@ -93,6 +93,8 @@ $newJournaEntryButton.addEventListener('click', handleNewJournalEntry);
 
 function handleNewJournalEntry(event) {
   // console.log('clicked to add new journal entry!');
+  entryForm.className = 'view';
+  entries.className = 'hidden';
 }
 
 // data.entries.pop();
