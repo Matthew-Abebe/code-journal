@@ -99,5 +99,3 @@ function handleNewJournalEntry(event) {
   entries.className = 'hidden';
   data.view = 'entry-form';
 }
-
-// data.entries.pop();

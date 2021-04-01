@@ -137,7 +137,3 @@ ul {
   flex-flow: row nowrap;
   justify-content: space-between;
 }
-
-.hidden {
-  display: none;
-}
