@@ -22,7 +22,10 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
+          <nav>
           <h2>Code Journal</h2>
+          <a>Entries</a>
+          </nav>
         </div>
       </div>
     </div>
@@ -30,18 +33,19 @@
 
   <main>
 
+
     <div class="container">
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+      <div class="entry-form" data-view="entry-form">
+
+        <form class="form-element">
+
+      <div class="container">
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
         </div>
       </div>
-    </div>
-
-<div class="container">
-  <div class="entry-form" data-view="entry-form">
-
-    <form class="form-element">
 
       <div class="row">
         <div class="column-half">
@@ -50,16 +54,16 @@
           </div>
         </div>
         <div class="column-half">
-          <p>Title</p>
+          <h3>Title</h3>
           <input type="text" id="title_name" name="title-name" required>
-          <p>Photo URL</p>
+          <h3>Photo URL</h3>
           <input type="text" id="photo_url" name="photo-url" required>
         </div>
       </div>
       <div class="row">
         <div class="column-full">
           <div class="notes">
-            <p>Notes</p>
+            <h3>Notes</h3>
             <textarea id="notes-section" name="notes-section" required></textarea>
           </div>
         </div>
@@ -72,6 +76,22 @@
     </form>
 
 </div>
+</div>
+
+<div class="container">
+  <div class="entries hidden" data-view="entries">
+    <div class="row">
+      <div class="column-full new_entries">
+        <h1>Entries</h1>
+        <div>
+          <button class="new-entry-button">NEW</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <ul></ul>
+  </div>
+  </div>
 </div>
 
 </main>
