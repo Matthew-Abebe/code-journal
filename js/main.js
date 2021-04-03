@@ -44,12 +44,11 @@ function handleClick(event) {
 entriesTab.addEventListener('click', handleClick);
 
 function renderJournalEntry(entry) {
+  var rowEl = document.createElement('div');
+  rowEl.className = 'row';
 
   var editIcon = document.createElement('i');
   editIcon.classList.add('fas', 'fa-edit');
-
-  var rowEl = document.createElement('div');
-  rowEl.className = 'row';
 
   var columnHalfDivEl = document.createElement('div');
   columnHalfDivEl.className = 'column-half';
@@ -102,4 +101,18 @@ function handleNewJournalEntry(event) {
   entryForm.className = 'view';
   entries.className = 'hidden';
   data.view = 'entry-form';
+}
+
+var parentElForEntries = document.querySelector('ul');
+var editItem = document.getElementsByTagName('i');
+// console.log(editItem);
+
+parentElForEntries.addEventListener('click', handleClickRenderedEntries);
+
+function handleClickRenderedEntries(entry) {
+  // console.log(event.target.tagName);
+
+  if (event.target.tagName === editItem) {
+    // console.log('you clicked the icon button');
+  }
 }
