@@ -36,11 +36,16 @@ nav > h2 {
 
 .column-half > h2 {
   font-weight: bold;
+  display: flex;
 }
 
 .column-full > h2 {
   color: #ffff;
   text-align: left;
+}
+
+.row {
+  width: 100%;
 }
 
 .photo > input {
@@ -136,4 +141,12 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+
+.fas.fa-edit {
+  /* width: 100px;
+  height: 100px; */
+  display: inline;
+  float: right;
+  color: #59338a;
 }

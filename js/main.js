@@ -1,32 +1,32 @@
 /* global data */
 /* exported data */
 
-var $photoUrl = document.querySelector('#photo_url');
-var $photo = document.querySelector('#photo');
-var $unorderedListEl = document.querySelector('ul');
+var photoUrl = document.querySelector('#photo_url');
+var photo = document.querySelector('#photo');
+var unorderedListEl = document.querySelector('ul');
 
-$photoUrl.addEventListener('input', updatePhotoUrl);
+photoUrl.addEventListener('input', updatePhotoUrl);
 
 function updatePhotoUrl(event) {
-  $photo.setAttribute('src', event.target.value);
+  photo.setAttribute('src', event.target.value);
 }
 
-var $formElement = document.querySelector('.form-element');
+var formElement = document.querySelector('.form-element');
 
-$formElement.addEventListener('submit', handleSubmitForm);
+formElement.addEventListener('submit', handleSubmitForm);
 
 function handleSubmitForm(event) {
   event.preventDefault();
   var inputObj = {
-    title: $formElement.elements['title-name'].value,
-    photoURL: $formElement.elements['photo-url'].value,
-    notes: $formElement.elements['notes-section'].value,
+    title: formElement.elements['title-name'].value,
+    photoURL: formElement.elements['photo-url'].value,
+    notes: formElement.elements['notes-section'].value,
     entryId: data.nextEntryId++
   };
   data.entries.unshift(inputObj);
-  $formElement.reset();
-  $photo.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $unorderedListEl.prepend(renderJournalEntry(inputObj));
+  formElement.reset();
+  photo.setAttribute('src', 'images/placeholder-image-square.jpg');
+  unorderedListEl.prepend(renderJournalEntry(inputObj));
 }
 
 var entriesTab = document.querySelector('a');
@@ -45,41 +45,45 @@ entriesTab.addEventListener('click', handleClick);
 
 function renderJournalEntry(entry) {
 
-  var $rowEl = document.createElement('div');
-  $rowEl.className = 'row';
+  var editIcon = document.createElement('i');
+  editIcon.classList.add('fas', 'fa-edit');
 
-  var $columnHalfDivEl = document.createElement('div');
-  $columnHalfDivEl.className = 'column-half';
+  var rowEl = document.createElement('div');
+  rowEl.className = 'row';
 
-  var $columnHalfDivElTwo = document.createElement('div');
-  $columnHalfDivElTwo.className = 'column-half';
+  var columnHalfDivEl = document.createElement('div');
+  columnHalfDivEl.className = 'column-half';
 
-  var $imageEl = document.createElement('img');
-  $imageEl.className = 'entry_photo';
-  $imageEl.setAttribute('src', entry.photoURL);
+  var columnHalfDivElTwo = document.createElement('div');
+  columnHalfDivElTwo.className = 'column-half';
 
-  var $entryTitle = document.createElement('h2');
-  $entryTitle.className = 'entry_title';
-  $entryTitle.textContent = entry.title;
+  var imageEl = document.createElement('img');
+  imageEl.className = 'entry_photo';
+  imageEl.setAttribute('src', entry.photoURL);
 
-  var $entryParagraph = document.createElement('p');
-  $entryParagraph.className = 'entry_paragraph';
-  $entryParagraph.textContent = entry.notes;
+  var entryTitle = document.createElement('h2');
+  entryTitle.className = 'entry_title';
+  entryTitle.textContent = entry.title;
 
-  $rowEl.appendChild($columnHalfDivEl);
-  $columnHalfDivEl.appendChild($imageEl);
-  $rowEl.appendChild($columnHalfDivElTwo);
-  $columnHalfDivElTwo.appendChild($entryTitle);
-  $columnHalfDivElTwo.appendChild($entryParagraph);
+  var entryParagraph = document.createElement('p');
+  entryParagraph.className = 'entry_paragraph';
+  entryParagraph.textContent = entry.notes;
 
-  return $rowEl;
+  columnHalfDivElTwo.appendChild(editIcon);
+  rowEl.appendChild(columnHalfDivEl);
+  columnHalfDivEl.appendChild(imageEl);
+  rowEl.appendChild(columnHalfDivElTwo);
+  columnHalfDivElTwo.appendChild(entryTitle);
+  columnHalfDivElTwo.appendChild(entryParagraph);
+
+  return rowEl;
 }
 
 window.addEventListener('DOMContentLoaded', handleDOMLoaded);
 
 function handleDOMLoaded(event) {
   for (var i = 0; i < data.entries.length; i++) {
-    $unorderedListEl.appendChild(renderJournalEntry(data.entries[i]));
+    unorderedListEl.appendChild(renderJournalEntry(data.entries[i]));
   }
   if (data.view === 'entries') {
     entries.className = 'view';
@@ -91,8 +95,8 @@ function handleDOMLoaded(event) {
   }
 }
 
-var $newJournaEntryButton = document.querySelector('.new-entry-button');
-$newJournaEntryButton.addEventListener('click', handleNewJournalEntry);
+var newJournaEntryButton = document.querySelector('.new-entry-button');
+newJournaEntryButton.addEventListener('click', handleNewJournalEntry);
 
 function handleNewJournalEntry(event) {
   entryForm.className = 'view';
