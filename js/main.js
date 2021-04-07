@@ -23,6 +23,7 @@ function handleSubmitForm(event) {
     notes: formElement.elements['notes-section'].value,
     entryId: data.nextEntryId++
   };
+
   data.entries.unshift(inputObj);
   formElement.reset();
   photo.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -44,11 +45,14 @@ function handleClick(event) {
 entriesTab.addEventListener('click', handleClick);
 
 function renderJournalEntry(entry) {
+
   var rowEl = document.createElement('div');
   rowEl.className = 'row';
+  rowEl.setAttribute('data-entry-id', entry.entryId);
 
   var editIcon = document.createElement('i');
   editIcon.classList.add('fas', 'fa-edit');
+  editIcon.setAttribute('id', 'edit-icon');
 
   var columnHalfDivEl = document.createElement('div');
   columnHalfDivEl.className = 'column-half';
@@ -104,17 +108,20 @@ function handleNewJournalEntry(event) {
 }
 
 var parentElForEntries = document.querySelector('ul');
-var editItem = document.getElementsByTagName('i');
-// console.log(editItem);
 
 parentElForEntries.addEventListener('click', handleClickRenderedEntries);
 
-function handleClickRenderedEntries(entry) {
-  // console.log(event.target.tagName);
+function handleClickRenderedEntries(event) {
+  var editItem = document.getElementById('edit-icon');
 
-  if (event.target.tagName === editItem) {
-    // console.log('you clicked the icon button');
+  if (event.target === editItem) {
+    entryForm.className = 'view';
+    entries.className = 'hidden';
+    data.view = 'entry-form';
   }
+
+  // console.log(event.target);
 }
 
-data.entries.pop();
+// console.log(data.entries);
+// data.entries.pop();
