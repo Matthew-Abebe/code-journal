@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
   <header>
@@ -19,8 +23,8 @@
       <div class="row">
         <div class="column-full">
           <nav>
-          <h2>Code Journal</h2>
-          <a>Entries</a>
+            <h2>Code Journal</h2>
+            <a>Entries</a>
           </nav>
         </div>
       </div>
@@ -35,64 +39,65 @@
 
         <form class="form-element">
 
-      <div class="container">
+          <div class="container">
+            <div class="row">
+              <div class="column-full">
+                <h1>New Entry</h1>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column-half">
+              <div class="photo">
+                <input type="image" id="photo" alt="photo" required src="images/placeholder-image-square.jpg">
+              </div>
+            </div>
+            <div class="column-half">
+              <h3>Title</h3>
+              <input type="text" id="title_name" name="title-name" required>
+              <h3>Photo URL</h3>
+              <input type="text" id="photo_url" name="photo-url" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="notes">
+                <h3>Notes</h3>
+                <textarea id="notes-section" name="notes-section" required></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="save-button">
+            <button class="submit-button">SAVE</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="entries hidden" data-view="entries">
         <div class="row">
-          <div class="column-full">
-            <h1>New Entry</h1>
+          <div class="column-full new_entries">
+            <h1>Entries</h1>
+            <div>
+              <button class="new-entry-button">NEW</button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="column-half">
-          <div class="photo">
-            <input type="image" id="photo" alt="photo" required src="images/placeholder-image-square.jpg">
-          </div>
-        </div>
-        <div class="column-half">
-          <h3>Title</h3>
-          <input type="text" id="title_name" name="title-name" required>
-          <h3>Photo URL</h3>
-          <input type="text" id="photo_url" name="photo-url" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="column-full">
-          <div class="notes">
-            <h3>Notes</h3>
-            <textarea id="notes-section" name="notes-section" required></textarea>
-          </div>
-        </div>
-      </div>
-
-      <div class="save-button">
-        <button class="submit-button">SAVE</button>
-      </div>
-
-    </form>
-
-</div>
-</div>
-
-<div class="container">
-  <div class="entries hidden" data-view="entries">
-    <div class="row">
-      <div class="column-full new_entries">
-        <h1>Entries</h1>
-        <div>
-          <button class="new-entry-button">NEW</button>
+        <div class="row">
+          <ul></ul>
         </div>
       </div>
     </div>
-    <div class="row">
-    <ul></ul>
-  </div>
-  </div>
-</div>
 
-</main>
+  </main>
 
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
