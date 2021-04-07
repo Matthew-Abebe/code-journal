@@ -116,3 +116,5 @@ function handleClickRenderedEntries(entry) {
     // console.log('you clicked the icon button');
   }
 }
+
+data.entries.pop();
